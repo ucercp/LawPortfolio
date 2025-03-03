@@ -7,9 +7,9 @@ Ardından projeye bir Admin Paneli eklendim. Bu panelde mevcut bütün işlemler
 Veri tabanı olarak MSSQL, orm aracı olarak Entity Framework Core kullandım. 
 Tablolarımızı ve veri tabanımızı Code First ile ayağa kaldırdım. 
 ASP.NET Core, Entity Framework Core, GUID, SHA256 (veya başka bir hash algoritması), ve bir mail servisi (örneğin SMTP veya üçüncü parti bir servis) kullandım.
-#Projenin görsellerine README dosyasının içini açarak bakabiliriz
+### Projenin görsellerine README dosyasının içini açarak bakabiliriz
 
-Kullandığım Teknolojiler:
+# Kullandığım Teknolojiler:
 ## ✅ ASP.NET MVC
 ## ✅ LINQ Sorguları
 ## ✅ Entity Framework 6 (Code First)
