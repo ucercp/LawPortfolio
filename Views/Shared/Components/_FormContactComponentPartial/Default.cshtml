@@ -1,0 +1,34 @@
+﻿ @model             Message
+
+<div class="col-eight tab-full contact__form">
+    @if (ViewBag.SuccessMessage != null)
+    {
+        <div class="message-success">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+
+    <form name="contactForm" method="post" action="/Message/Create">
+        <fieldset>
+            <div class="form-field">
+                <input name="NameSurname" asp-for="NameSurname" type="text" id="contactName" placeholder="İsim" required class="full-width">
+            </div>
+            <div class="form-field">
+                <input name="Email" asp-for="Email" type="email" id="contactEmail" placeholder="Mail" required class="full-width">
+            </div>
+            <div class="form-field">
+                <input name="Subject" asp-for="Subject" type="text" id="contactSubject" placeholder="Konu" class="full-width">
+            </div>
+            <div class="form-field">
+                <textarea name="MessageDetail" asp-for="MessageDetail" id="contactMessage" placeholder="Mesaj" rows="10" required class="full-width"></textarea>
+            </div>
+            <div class="form-field">
+                <button class="full-width btn--primary">Gönder</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <div class="message-warning">
+        Bir şeyler ters gitti. Lütfen tekrar deneyin.
+    </div>
+</div>

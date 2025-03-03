@@ -1,0 +1,26 @@
+﻿@model List<Referance>
+
+<section id="blog" class="s-blog target-section">
+    <div class="row narrow section-intro has-bottom-sep">
+        <div class="col-full">         
+            <h1>REFERANSLARIM</h1>
+            <p class="lead" style="color:black ">Mesleki kariyerim boyunca birlikte çalıştığım değerli hocalar, meslektaşlar ve hukuk dünyasından profesyonellerin adlarına yer verilmektedir.
+                Her biri, hukuk alanında bilgi ve tecrübelerini paylaşarak mesleki yolculuğuma katkıda bulunmuş,
+                birlikte çalıştığım kişilerden oluşmaktadır </p>
+        </div>
+    </div>
+    <div class="row blog-content">
+        <div class="col-full">
+            <div class="blog-list block-1-4 block-tab-full">
+                @foreach(var item in Model)
+                {
+                    <article class="col-block">
+                        <h2 class="h01">@item.NameSurname</h2>
+                        <p> @item.Title</p>
+                    </article>
+                }
+            </div> 
+        </div> 
+    </div> 
+
+</section> 

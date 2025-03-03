@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Şifre Sıfırlama İsteği";
+}
+
+<h2>Şifre Sıfırlama İsteği</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
+<form asp-action="RequestReset" method="post">
+    <div class="form-group">
+        <label for="email">Kayıtlı E-posta Adresinizi Giriniz</label>
+        <input type="email" class="form-control" id="email" name="email" required />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Gönder</button>
+</form>

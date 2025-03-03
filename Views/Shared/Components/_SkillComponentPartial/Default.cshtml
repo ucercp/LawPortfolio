@@ -1,0 +1,19 @@
+﻿@model List<Skill>
+
+
+<div class="col-six tab-full right">
+    <h3>Hukuk Alanları</h3>
+    <ul class="skill-bars">
+        @foreach (var item in Model)
+        {
+            var percentage = item.Value; // Yüzde değerini bir değişkene atıyoruz
+            <li>
+                <div class="progress percent" style="width: @percentage%;">
+                    <!-- Burada inline CSS kullanıyoruz -->
+                    <span>@percentage%</span>
+                </div>
+                <strong>@item.Title</strong>
+            </li>
+        }
+    </ul>
+</div>

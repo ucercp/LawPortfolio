@@ -1,0 +1,81 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <form method="post">
+                            <input type="hidden" asp-for="TestimonialId" />
+
+                            <label>Unvan</label>
+                            <input type="text" asp-for="Title" class="form-control" required />
+                            <br />
+
+                            <label>Ad ve Soyad</label>
+                            <input type="text" asp-for="NameSurname" class="form-control" required />
+                            <br />
+
+                            <label>Açıklama</label>
+                            <textarea rows="4" class="form-control" asp-for="Description" required></textarea>
+                            <br />
+
+                            <!-- Kullanıcının değiştiremeyeceği tarih alanı -->
+                            <label>Oluşturulma Tarihi</label>
+                            <input type="text" asp-for="CreatedAt" class="form-control" readonly />
+                            <br />
+
+                            <button class="btn btn-success">Yorumu Güncelle</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@* @model Testimonial
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <form method="post">
+                            <input type="hidden" asp-for="TestimonialId" />
+                            <label>Unvan</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Ad ve Soyad</label>
+                            <input type="text" asp-for="NameSurname" class="form-control" />
+                            <br />
+                            <label>Açıklama</label>
+                            <textarea rows="4" class="form-control" asp-for="Description"></textarea>
+                            <br />
+                            <button class="btn btn-warning">Yorumları Güncelle</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ *@
+

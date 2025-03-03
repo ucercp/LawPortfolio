@@ -1,0 +1,263 @@
+﻿@model List<Testimonial>
+
+<div class="s-testimonials">
+    <div class="overlay"></div>
+
+    <div class="row testimonials-header">
+        <div class="col-full">
+            <h1 class="h02">İnsanlar Benim İçin Ne Dediler?</h1>
+        </div>
+    </div>
+
+    <div class="row testimonials">
+        <div class="col-full testimonials__slider">
+            @foreach (var item in Model)
+            {
+                <div class="testimonials__slide">
+                    <!-- Sabit resim -->
+                    <img src="/hola-master/images/portfolio/liberty.jpg" alt="Yorum Sahibi" class="testimonials__avatar">
+
+                    <p>@item.Description</p>
+
+                    <div class="testimonials__author h06">
+                        @(string.IsNullOrEmpty(item.NameSurname) ? "Anonim" : item.NameSurname)
+                        <span>@(string.IsNullOrEmpty(item.Title) ? "Bilinmiyor" : item.Title)</span>
+                    </div>
+
+                    <!-- Tarih okunabilir formatta -->
+                    <p class="testimonial-date">
+                        <small><i>@item.CreatedAt.ToString("dd MMMM yyyy")</i></small>
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div>
+    <!-- Yorum yapma butonu -->
+    <button id="showFormButton" class="show-form-button">Yorum Yap</button>
+
+    <!-- Yorum formu (başlangıçta gizli) -->
+    <div id="testimonialForm" class="testimonial-form">
+        <h3>Yorum Yap</h3>
+        <form method="post" action="/Testimonial/AddTestimonial">
+            <label for="nameSurname">Adınız ve Soyadınız:</label>
+            <input type="text" id="nameSurname" name="nameSurname" placeholder="Adınızı girin" />
+
+            <label for="title">Unvan:</label>
+            <input type="text" id="title" name="title" placeholder="Unvan girin" />
+
+            <label for="description">Yorumunuz:</label>
+            <textarea id="description" name="description" placeholder="Yorumunuzu yazın" required></textarea>
+
+            <button type="submit">Yorum Yap</button>
+        </form>
+    </div>
+
+    <!-- CSS ve JavaScript kodları -->
+    <style>
+        /* Yorum Yap butonu */
+        .show-form-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .show-form-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Yorum formunun arka planını resimle doldurmak */
+        .testimonial-form {
+            display: none; /* Başlangıçta gizli */
+            background-color: rgba(255, 255, 255, 0.8); /* Opak beyaz zemin */
+            background-image: url('/hola-master/images/portfolio/liberty.jpg'); /* Resmin yolu */
+            background-size: cover; /* Resmin boyutunu formun tamamını kaplayacak şekilde ayarlama */
+            background-position: center; /* Resmi ortala */
+            background-repeat: no-repeat; /* Resmi tekrarlama */
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Form alanları */
+        .testimonial-form input,
+        .testimonial-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .testimonial-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .testimonial-form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Yorum tarih stil */
+        .testimonial-date {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Açılma efekti */
+        keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        document.getElementById('showFormButton').addEventListener('click', function () {
+            var form = document.getElementById('testimonialForm');
+
+            if (form.style.display === 'none' || form.style.display === '') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        });
+    </script>
+</div>
+
+@* <div>
+    <!-- Yorum yapma butonu -->
+    <button id="showFormButton" class="show-form-button">Yorum Yap</button>
+
+    <!-- Yorum formu (başlangıçta gizli) -->
+    <div id="testimonialForm" class="testimonial-form">
+        <h3>Yorum Yap</h3>
+        <form method="post" action="/Testimonial/AddTestimonial">
+            <label for="nameSurname">Adınız ve Soyadınız:</label>
+            <input type="text" id="nameSurname" name="nameSurname" placeholder="Adınızı girin" />
+
+            <label for="title">Unvan:</label>
+            <input type="text" id="title" name="title" placeholder="Unvan girin" />
+
+            <label for="description">Yorumunuz:</label>
+            <textarea id="description" name="description" placeholder="Yorumunuzu yazın" required></textarea>
+
+            <button type="submit">Yorum Yap</button>
+        </form>
+    </div>
+
+    <!-- CSS ve JavaScript kodları -->
+    <style>
+        /* Yorum Yap butonu */
+        .show-form-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+            .show-form-button:hover {
+                background-color: #45a049;
+            }
+
+        /* Yorum formu */
+        .testimonial-form {
+            display: none; /* Başlangıçta gizli */
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+            /* Form alanları */
+            .testimonial-form input,
+            .testimonial-form textarea {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 14px;
+            }
+
+            .testimonial-form button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+                .testimonial-form button:hover {
+                    background-color: #45a049;
+                }
+
+        /* Yorum tarih stil */
+        .testimonial-date {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Açılma efekti */
+        keyframes fadeIn {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }</style>
+
+    <script>
+        document.getElementById('showFormButton').addEventListener('click', function () {
+            var form = document.getElementById('testimonialForm');
+
+            if (form.style.display === 'none' || form.style.display === '') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        });
+    </script>
+
+</div>
+ *@
