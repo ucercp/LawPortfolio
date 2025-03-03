@@ -8,12 +8,12 @@ Veri tabanı olarak MSSQL, orm aracı olarak Entity Framework Core kullandım.
 Tablolarımızı ve veri tabanımızı Code First ile ayağa kaldırdım. 
 ASP.NET Core, Entity Framework Core, GUID, SHA256 (veya başka bir hash algoritması), ve bir mail servisi (örneğin SMTP veya üçüncü parti bir servis) kullandım.
 Kullandığım Teknolojiler:
-# ✅ ASP.NET MVC
-# ✅ LINQ Sorguları
-# ✅ Entity Framework 6 (Code First)
-# ✅ MSSQL Server
-# ✅ CRUD İşlemleri
-# ✅ HTML, CSS, Bootstrap
-# ✅ Repository Design Pattern
-# ✅ Authentication & Authorization
-# ✅Session & Cookie Yönetimi
+## ✅ ASP.NET MVC
+## ✅ LINQ Sorguları
+## ✅ Entity Framework 6 (Code First)
+## ✅ MSSQL Server
+## ✅ CRUD İşlemleri
+## ✅ HTML, CSS, Bootstrap
+## ✅ Repository Design Pattern
+## ✅ Authentication & Authorization
+## ✅Session & Cookie Yönetimi
